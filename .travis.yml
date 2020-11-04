@@ -12,10 +12,11 @@ before_install:
 
 jobs:
   include:
-    - stage: terraform validate
-      script: terraform validate $tf_validation_cli_options
     - stage: terraform init
       script: terraform init $tf_init_cli_options
+    - stage: terraform validate
+      script: terraform validate $tf_validation_cli_options
+    - stage: terraform fmt
     - stage: terraform fmt
       script: make fmt
     - stage: plan
