@@ -1,0 +1,15 @@
+env:
+  - tf_version=0.13.3 tf_init_cli_options="-input=false" tf_validation_cli_options="" tf_plan_cli_options="-lock=false -input=false" tf_apply_cli_options="-auto-approve -input=false"
+
+branches:
+  only:
+    - main
+language: bash
+
+before_install:
+  - wget https://releases.hashicorp.com/terraform/${tf_version}/terraform_${tf_version}_linux_amd64.zip -O /tmp/terraform.zip
+  - sudo unzip -d /usr/local/bin/ /tmp/terraform.zip && rm /tmp/terraform.zip
+
+script:
+  - make test
+  - make fmt
