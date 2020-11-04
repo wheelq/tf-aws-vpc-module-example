@@ -3,6 +3,6 @@ output "vpc_id" {
   description = "Created VPC with the following id"
 }
 
-output "≈" {
+output "public_subnets" {
   value = aws_subnet.public_subnet.*.id
 }
